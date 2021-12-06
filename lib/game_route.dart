@@ -51,7 +51,7 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
     // TODO: Initialize _bannerAd
     _bannerAd = BannerAd(
       adUnitId: AdHelper.bannerAdUnitId,
-      request: AdRequest(),
+      request: const AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(
         onAdLoaded: (_) {
@@ -152,9 +152,9 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(24),
+                          padding: const EdgeInsets.all(24),
                           child: CustomPaint(
-                            size: Size(300, 300),
+                            size: const Size(300, 300),
                             painter: DrawingPainter(
                               drawing: _drawing,
                             ),
@@ -175,7 +175,7 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
             if (_isBannerAdReady)
               Align(
                 alignment: Alignment.topCenter,
-                child: Container(
+                child: SizedBox(
                   width: _bannerAd.size.width.toDouble(),
                   height: _bannerAd.size.height.toDouble(),
                   child: AdWidget(ad: _bannerAd),
