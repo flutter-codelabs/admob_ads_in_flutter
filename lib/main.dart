@@ -9,7 +9,7 @@ import 'home_route.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
   ));
@@ -18,13 +18,13 @@ void main() async {
     MaterialApp(
       home: HomeRoute(),
       routes: <String, WidgetBuilder>{
-        '/home': (BuildContext context) => new HomeRoute(),
-        '/game': (BuildContext context) => new GameRoute()
+        '/home': (BuildContext context) => HomeRoute(),
+        '/game': (BuildContext context) => GameRoute()
       },
       theme: ThemeData(
         primaryColor: AppTheme.primary,
         primaryColorDark: AppTheme.primaryDark,
-        accentColor: AppTheme.accent,
+        secondaryHeaderColor: AppTheme.accent,
         textTheme: GoogleFonts.acmeTextTheme().copyWith(
             button: GoogleFonts.ubuntuMono(
           fontSize: 16,

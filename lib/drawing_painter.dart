@@ -4,7 +4,7 @@ import 'drawing.dart';
 class DrawingPainter extends CustomPainter {
   Drawing drawing;
 
-  Paint _paint = new Paint()
+  final Paint _paint = Paint()
     ..color = Colors.black
     ..strokeCap = StrokeCap.round
     ..style = PaintingStyle.stroke
@@ -16,9 +16,9 @@ class DrawingPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    drawing.strokes.forEach((stroke) {
+    for (var stroke in drawing.strokes) {
       var points = stroke.points;
-      assert(points.length > 0);
+      assert(points.isNotEmpty);
 
       Path path = Path();
       path.moveTo(
@@ -34,12 +34,12 @@ class DrawingPainter extends CustomPainter {
       }
 
       canvas.drawPath(path, _paint);
-    });
+    }
   }
 
   @override
   bool shouldRepaint(DrawingPainter oldDelegate) {
-    return oldDelegate.drawing.word != this.drawing.word;
+    return oldDelegate.drawing.word != drawing.word;
   }
 
   double _scale(num original, num axisLength) {

@@ -21,40 +21,40 @@ class _HomeRouteState extends State<HomeRoute> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Awesome Drawing Quiz!",
                   style: TextStyle(
                     fontSize: 32,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 72),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 72),
                 ),
                 if (snapshot.hasData)
                   ElevatedButton(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
                         horizontal: 48.0,
                         vertical: 12.0,
                       ),
                       child: Text('Let\'s get started!'),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Theme.of(context).accentColor,
+                      primary: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: () {
                       Navigator.of(context).pushNamed('/game');
                     },
                   )
                 else if (snapshot.hasError)
-                  Icon(
+                  const Icon(
                     Icons.error_outline,
                     color: Colors.red,
                     size: 60,
                   )
                 else
-                  SizedBox(
+                  const SizedBox(
                     child: CircularProgressIndicator(),
                     width: 48,
                     height: 48,

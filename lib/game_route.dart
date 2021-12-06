@@ -87,14 +87,14 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Text(
                     'Level $_level/5',
                     style: TextStyle(fontSize: 32),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   OutlinedButton(
@@ -110,7 +110,7 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
                           String _answer = '';
 
                           return AlertDialog(
-                            title: Text('Enter your answer'),
+                            title: const Text('Enter your answer'),
                             content: TextField(
                               autofocus: true,
                               onChanged: (value) {
@@ -137,13 +137,13 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
                       ),
                       child: Text(
                         _clue,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 24,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Card(
@@ -165,7 +165,7 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    margin: EdgeInsets.all(16),
+                    margin: const EdgeInsets.all(16),
                   ),
                 ],
               ),
@@ -271,7 +271,7 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Game over!'),
+          title: const Text('Game over!'),
           content: Text('Score: $correctAnswers/5'),
           actions: [
             TextButton(
